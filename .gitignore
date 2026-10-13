@@ -1,0 +1,18 @@
+# Environment variables and API keys
+.env
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Local vector database storage
+faiss_index/
+
+# Streamlit config
+.streamlit/
+/cop/
