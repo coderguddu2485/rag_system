@@ -9,7 +9,7 @@ from src.llm import generate_answer
 
 st.set_page_config(page_title="NIT Delhi ChatBot", page_icon="🤖", layout="centered")
 
-st.title("🤖 National Institute of Technology Delhi ChatBot")
+st.markdown("### 🤖 National Institute of Technology Delhi ChatBot") 
 st.write("Ask questions and chat naturally about NIT Delhi.")
 
 @st.cache_resource
