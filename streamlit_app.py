@@ -7,10 +7,10 @@ from src.retriever import retrieve_documents
 from src.prompt import format_context, build_prompt
 from src.llm import generate_answer
 
-st.set_page_config(page_title="PDF RAG Chatbot", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="NIT Delhi ChatBot", page_icon="🤖", layout="centered")
 
-st.title("🤖 Institutional PDF Assistant")
-st.write("Ask questions and chat naturally with your college documents.")
+st.title("🤖 National Institute of Technology Delhi ChatBot")
+st.write("Ask questions and chat naturally about your NIT Delhi.")
 
 @st.cache_resource
 def initialize_rag():
