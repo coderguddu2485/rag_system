@@ -11,7 +11,7 @@ __pycache__/
 *.pyc
 
 # Local vector database storage
-faiss_index/
+vector_db/
 
 # Streamlit config
 .streamlit/
