@@ -1,9 +1,8 @@
 from pathlib import Path
-
 from langchain_community.vectorstores import FAISS
-
-# from embeddings import get_embeddings
 from src.embeddings import get_embeddings
+from src.loader import load_documents
+from src.splitter import split_documents
 
 # Project Root
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,7 +16,6 @@ def create_vector_db(chunks):
     Create a FAISS vector database from document chunks
     and save it to disk.
     """
-
     # Create vector_db folder if it doesn't exist
     VECTOR_DB_DIR.mkdir(exist_ok=True)
 
@@ -42,7 +40,6 @@ def load_vector_db():
     """
     Load an existing FAISS vector database.
     """
-
     embeddings = get_embeddings()
 
     vector_db = FAISS.load_local(
@@ -61,7 +58,6 @@ def get_vector_db(chunks=None):
     If vector database already exists, load it.
     Otherwise create a new one.
     """
-
     index_file = VECTOR_DB_DIR / "index.faiss"
 
     if index_file.exists():
@@ -73,3 +69,14 @@ def get_vector_db(chunks=None):
 
     print("🆕 Creating New Vector Database...")
     return create_vector_db(chunks)
+
+
+if __name__ == "__main__":
+    print("🔄 Loading documents from data folder...")
+    docs = load_documents()
+    
+    print("✂️ Splitting documents into chunks...")
+    chunks = split_documents(docs)
+    
+    print("🛠️ Building and saving new vector database...")
+    create_vector_db(chunks)
