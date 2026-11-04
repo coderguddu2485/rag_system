@@ -56,7 +56,7 @@ def load_vector_db():
     return vector_db
 
 
-def get_vector_db(chunks):
+def get_vector_db(chunks=None):
     """
     If vector database already exists, load it.
     Otherwise create a new one.
@@ -67,6 +67,9 @@ def get_vector_db(chunks):
     if index_file.exists():
         print("📂 Loading Existing Vector Database...")
         return load_vector_db()
+
+    if chunks is None:
+        raise ValueError("Vector database does not exist, and no chunks were provided to create one.")
 
     print("🆕 Creating New Vector Database...")
     return create_vector_db(chunks)
